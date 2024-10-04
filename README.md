@@ -65,6 +65,17 @@ Este proyecto pondrá a prueba las competencias técnicas del equipo, incluyendo
 - Desarrollo completo del software, utilizando tecnología de back-end y front-end, con transacciones asíncronas con el servidor y cumpliendo los estándares requeridos para un software en la nube.
 
 ---
+En el **Proyecto Midnight**, nos enfocamos en desarrollar un software en la nube que optimice la gestión de inventarios y ventas para las MIPYMES. Para lograrlo, hemos implementado una combinación de tecnologías modernas que garantizan una solución escalable, rápida y eficiente tanto en el frontend como en el backend.
+
+### Tecnologías Utilizadas
+
+- **Astro** ✨  
+- **TailwindCSS** 🎨  
+- **Python** 🐍  
+- **Node.js** ⚙️  
+- **FastAPI** 🚀  
+- **SQL** 🗄️
+---
 
 # ⚠️ Disclaimer ⚠️
 
