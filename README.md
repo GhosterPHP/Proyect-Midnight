@@ -66,7 +66,7 @@ Este proyecto pondrá a prueba las competencias técnicas del equipo, incluyendo
 
 ---
 
-# Disclaimer
+# ⚠️ Disclaimer ⚠️
 
 Este software y todos sus componentes relacionados con el **Proyecto Midnight** son propiedad exclusiva de **Mewingroup**. La información contenida en este proyecto, incluyendo módulos, funcionalidades y documentación técnica, no debe ser utilizada, distribuida o reproducida sin el consentimiento previo y por escrito de **Mewingroup**.
 
