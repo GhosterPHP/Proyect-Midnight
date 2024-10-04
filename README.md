@@ -70,7 +70,7 @@ En el **Proyecto Midnight**, nos enfocamos en desarrollar un software en la nube
 ### Tecnologías Utilizadas
 
 - **Astro** ✨  
-- **TailwindCSS** 🎨  
+- **TailwindCSS** 🍃 
 - **Python** 🐍  
 - **Node.js** ⚙️  
 - **FastAPI** 🚀  
