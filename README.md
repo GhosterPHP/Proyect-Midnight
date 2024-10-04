@@ -1,4 +1,4 @@
-# Proyecto Midnight
+# 🌃 Proyecto Midnight 🚀
 
 El **Proyecto Midnight** consiste en el desarrollo de un software en la nube para gestionar de manera eficiente las operaciones esenciales de inventario y ventas que las MIPYMES requieren. Este sistema es adaptable a diversos rubros comerciales como ferreterías, boutiques, lubricentros, tiendas de conveniencia, farmacias, librerías, talleres, entre otros.
 
