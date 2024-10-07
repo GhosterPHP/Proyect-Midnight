@@ -1,0 +1,46 @@
+---
+const { title = "Iniciar Sesión" } = Astro.props;
+---
+
+<div class="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-slate-900">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">{title}</h2>
+    
+    <form id="loginForm" action="/login" method="post" class="space-y-6">
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+        <input type="email" id="email" name="email" required 
+               class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" 
+               placeholder="Ingresa tu correo" />
+      </div>
+      
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+        <input type="password" id="password" name="password" required 
+               class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" 
+               placeholder="Ingresa tu contraseña" />
+      </div>
+      
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <input id="remember_me" name="remember_me" type="checkbox" 
+                 class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+          <label for="remember_me" class="ml-2 block text-sm text-gray-900">
+            Recordarme
+          </label>
+        </div>
+
+        <div class="text-sm">
+          <a href="#" class="font-medium text-blue-600 hover:text-blue-500">¿Olvidaste tu contraseña?</a>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" 
+                class="w-full py-2 px-4 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          Iniciar Sesión
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

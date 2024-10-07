@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados opcionales */
+html {
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body {
+  background-color: white; /* Color de fondo por defecto */
+  color: black; /* Color de texto por defecto */
+}
+
+body.dark {
+  background-color: #1f2937; /* Color de fondo en modo oscuro */
+  color: white; /* Color de texto en modo oscuro */
+}

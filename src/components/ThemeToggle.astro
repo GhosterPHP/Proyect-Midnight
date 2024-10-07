@@ -1,0 +1,85 @@
+---
+---
+
+<div class="relative">
+  <button
+    id="theme-toggle"
+    class="absolute top-4 left-4 p-2 rounded-full bg-slate-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-colors duration-700 dark:border-solid dark:border-2 dark:border-blue-500 border-solid border-2 border-slate-500"
+    aria-label="Toggle theme"
+  >
+  </button>
+  <div
+    id="theme-text-container"
+    class="absolute top-4 left-16 bg-gray-200 dark:bg-gray-800 rounded-lg p-2 opacity-0 transition-opacity duration-300"
+  >
+    <span
+      id="theme-text"
+      class="text-gray-800 dark:text-cyan-300 opacity-0 transition-opacity duration-300"
+    >
+      Tema claro
+    </span>
+  </div>
+</div>
+
+<script>
+  const button = document.getElementById('theme-toggle');
+  const themeText = document.getElementById('theme-text');
+  const themeTextContainer = document.getElementById('theme-text-container');
+
+  const updateThemeButton = () => {
+    if (document.documentElement.classList.contains('dark')) {
+      button.innerHTML = '🌙';
+      themeText.innerHTML = 'Tema oscuro';
+    } else {
+      button.innerHTML = '☀️';
+      themeText.innerHTML = 'Tema claro';
+    }
+  };
+
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle('dark');
+    updateThemeButton();
+
+    themeText.classList.remove('opacity-0');
+    themeText.classList.add('opacity-100');
+    themeTextContainer.classList.remove('opacity-0');
+    themeTextContainer.classList.add('opacity-100');
+
+    button.style.pointerEvents = 'none';
+
+    setTimeout(() => {
+      themeText.classList.remove('opacity-100');
+      themeText.classList.add('opacity-0');
+      themeTextContainer.classList.remove('opacity-100');
+      themeTextContainer.classList.add('opacity-0');
+
+      button.style.pointerEvents = 'auto';
+    }, 1500);
+  };
+
+  const storedTheme = localStorage.getItem('theme');
+
+  if (storedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  }
+
+  updateThemeButton();
+
+  themeText.classList.remove('opacity-0');
+  themeText.classList.add('opacity-100');
+  themeTextContainer.classList.remove('opacity-0');
+  themeTextContainer.classList.add('opacity-100');
+
+  button.style.pointerEvents = 'none';
+
+  setTimeout(() => {
+    themeText.classList.remove('opacity-100');
+    themeText.classList.add('opacity-0');
+    themeTextContainer.classList.remove('opacity-100');
+    themeTextContainer.classList.add('opacity-0');
+
+    button.style.pointerEvents = 'auto';
+  }, 1500);
+
+  button.addEventListener('click', toggleTheme);
+</script>

@@ -1,8 +1,9 @@
 ---
-
+import Loginform from "../components/Loginform.astro"
+import ThemeToggle from "../components/ThemeToggle.astro"
 ---
 
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -10,7 +11,8 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-white text-black dark:bg-slate-900 dark:text-white">
+		<ThemeToggle />
+		<Loginform title="Accede a tu cuenta" />
 	</body>
 </html>
