@@ -1,0 +1,195 @@
+---
+
+---
+<style>
+    /* Posición inicial del círculo */
+.dot {
+    transform: translateX(0); /* Posición inicial */
+}
+
+/* Cuando el checkbox está marcado, el círculo se mueve a la derecha */
+input:checked + .block + .dot {
+    transform: translateX(100%); /* Desplazarse a la derecha */
+}
+
+/* Opcional: ajustar colores al hacer check */
+input:checked + .block {
+    background-color: #515253; /* Cambiar el color del switch cuando está activado (modo oscuro o claro) */
+}
+</style>
+
+<aside id="sidebar" class="w-64 h-screen bg-gray-100 text-black flex flex-col fixed inset-y-0 left-0 transform transition-transform md:translate-x-0 -translate-x-full md:block z-40 dark:bg-gray-800 dark:text-white">
+    <div class="flex items-center justify-between h-20 border-b border-gray-700">
+        <h1 class="text-2xl font-bold ml-4"> Midnight </h1>
+        <!-- Botón hamburguesa -->
+        <button id="hamburger" class="md:hidden p-2 focus:outline-none" onclick="toggleSidebar()">
+            <i class="fas fa-bars fa-lg"></i>
+        </button>
+    </div>
+    <nav class="flex-1 mt-10">
+        <ul class="space-y-6">
+            <!-- Lista de elementos del sidebar (sin cambios) -->
+            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
+                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
+                <i class="fa-solid fa-house fa-xl"></i>
+                <a href="/Panel" class="group-hover:text-magenta-300 transition-colors">Inicio</a>
+            </li>
+            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
+                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
+                <i class="fas fa-users fa-xl"></i>
+                <a href="#" class="group-hover:text-magenta-300 transition-colors">Clientes</a>
+            </li>
+            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
+                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
+                <i class="fas fa-shopping-cart fa-xl"></i>
+                <a href="#" class="group-hover:text-magenta-300 transition-colors">Ventas</a>
+            </li>
+            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
+                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
+                <i class="fa-solid fa-address-book fa-xl"></i>
+                <a href="#" class="group-hover:text-magenta-300 transition-colors">Empleados</a>
+            </li>
+            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
+                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
+                <i class="fas fa-truck fa-xl"></i>
+                <a href="#" class="group-hover:text-magenta-300 transition-colors">Proveedores</a>
+            </li>
+            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
+                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
+                <i class="fas fa-file-alt fa-xl"></i>
+                <a href="#" class="group-hover:text-magenta-300 transition-colors">Finanzas</a>
+            </li>
+            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
+                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
+                <i class="fas fa-bag-shopping fa-xl"></i>
+                <a href="#" class="group-hover:text-magenta-300 transition-colors">Compras</a>
+            </li>
+            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
+                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
+                <i class="fa-solid fa-box fa-xl"></i>
+                <a href="#" class="group-hover:text-magenta-300 transition-colors">Inventario</a>
+            </li>
+            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
+                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
+                <i class="fas fa-sign-out-alt fa-xl"></i>
+                <a href="/" class="group-hover:text-magenta-300 transition-colors">Cerrar Sesion</a>
+            </li>
+            <li class="group relative px-4 py-2 flex items-center space-x-4 cursor-pointer">
+                <!-- Switch de cambio de tema -->
+                <label class="flex items-center cursor-pointer">
+                    <div class="relative">
+                        <input id="theme-toggle" type="checkbox" class="sr-only">
+                        <div class="block bg-yellow-500 dark:bg-gray-300 w-14 h-8 rounded-full"></div>
+                        <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                    </div>
+                    <div class="ml-3 text-gray-700 dark:text-gray-300 flex items-center">
+                        <!-- Iconos de sol y luna con Font Awesome -->
+                        <i id="sun-icon" class="fas fa-sun text-yellow-500 hidden"></i> <!-- Icono del sol (modo claro) -->
+                        <i id="moon-icon" class="fas fa-moon text-gray-300 hidden"></i> <!-- Icono de la luna (modo oscuro) -->
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
+<!-- Encabezado en pantallas pequeñas -->
+<div id="header" class="md:hidden bg-gray-800 text-white flex items-center justify-between p-4 fixed top-0 left-0 right-0 z-50">
+    <h1 class="text-2xl font-bold">Inicio</h1>
+    <button id="hamburger-header" class="p-2 focus:outline-none" onclick="toggleSidebar()">
+        <i class="fas fa-bars fa-lg"></i>
+    </button>
+</div>
+
+<!-- Main Content -->
+<div id="main-content" class="md:ml-64 p-4">
+    <!-- Aquí va tu contenido principal -->
+</div>
+
+<!-- Scripts -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+        }
+
+        function setActive(selectedItem) {
+            // Eliminar el estado activo de todos los elementos
+            const items = document.querySelectorAll('li');
+            items.forEach(item => {
+                item.classList.remove('bg-gray-900', 'text-magenta-300', 'border-l-2', 'border-magenta-500');
+            });
+
+            // Aplicar el estado activo al elemento seleccionado
+            selectedItem.classList.add('bg-gray-900', 'text-magenta-300', 'border-l-2', 'border-magenta-500');
+        }
+
+        // Asegúrate de agregar los eventos aquí
+        const hamburger = document.getElementById('hamburger');
+        const hamburgerHeader = document.getElementById('hamburger-header');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', toggleSidebar);
+        }
+        if (hamburgerHeader) {
+            hamburgerHeader.addEventListener('click', toggleSidebar);
+        }
+        
+    }); document.addEventListener('DOMContentLoaded', function () {
+    const themeToggle = document.getElementById('theme-toggle'); // Checkbox
+    const sunIcon = document.getElementById('sun-icon');         // Icono del sol
+    const moonIcon = document.getElementById('moon-icon');       // Icono de la luna
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)'); // Detectar tema del dispositivo
+    const currentTheme = localStorage.getItem('theme'); // Revisar el tema guardado
+
+    // Función para aplicar el tema según la preferencia del sistema o el localStorage
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            if (themeToggle) themeToggle.checked = true;  // Verificar si el elemento existe antes de acceder a checked
+            moonIcon.classList.remove('hidden');
+            sunIcon.classList.add('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            if (themeToggle) themeToggle.checked = false; // Verificar si el elemento existe antes de acceder a checked
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+    }
+
+    // Revisar si hay un tema guardado en localStorage
+    if (currentTheme) {
+        applyTheme(currentTheme);
+    } else {
+        // Si no hay tema guardado, aplicar el del sistema
+        if (prefersDarkScheme.matches) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
+    }
+
+    // Escuchar el evento de cambio de tema en el switch
+    if (themeToggle) {
+        themeToggle.addEventListener('change', function () {
+            if (themeToggle.checked) {
+                // Modo oscuro activado
+                applyTheme('dark');
+                localStorage.setItem('theme', 'dark'); // Guardar la preferencia
+            } else {
+                // Modo claro activado
+                applyTheme('light');
+                localStorage.setItem('theme', 'light'); // Guardar la preferencia
+            }
+        });
+    }
+
+    // Detectar cambios en el tema del sistema automáticamente
+    prefersDarkScheme.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) { // Solo cambia si el usuario no ha seleccionado un tema
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+});
+</script>
