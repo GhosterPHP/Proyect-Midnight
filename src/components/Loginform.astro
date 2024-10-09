@@ -6,7 +6,7 @@ const { title = "Iniciar Sesión" } = Astro.props;
   <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full dark:bg-gray-800">
     <h2 class="text-2xl font-bold text-center text-gray-800 mb-6 dark:text-cyan-300">{title}</h2>
     
-    <form id="loginForm" action="/Panel" method="post" class="space-y-6">
+    <form id="loginForm" action="/Panel" method="get" class="space-y-6">
       <div>
         <label for="email" class="block text-sm font-medium text-gray-700 dark:text-cyan-300">Correo Electrónico</label>
         <input type="email" id="email" name="email" required 
@@ -23,11 +23,6 @@ const { title = "Iniciar Sesión" } = Astro.props;
       
       <div class="flex items-center justify-between">
         <div class="flex items-center">
-          <input id="remember_me" name="remember_me" type="checkbox" 
-                 class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
-          <label for="remember_me" class="ml-2 block text-sm text-gray-900 dark:text-cyan-400">
-            Recordarme
-          </label>
         </div>
 
         <div class="text-sm">
@@ -44,3 +39,14 @@ const { title = "Iniciar Sesión" } = Astro.props;
     </form>
   </div>
 </div>
+<script>
+  const loginForm = document.getElementById('loginForm');
+
+  loginForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita el envío inmediato del formulario
+
+    const passwordField = document.getElementById('password');
+    passwordField.value = '';
+    loginForm.submit();
+  });
+</script>
