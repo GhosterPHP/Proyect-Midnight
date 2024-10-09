@@ -1,0 +1,70 @@
+---
+import Header from "../Components/Header.astro"
+import Card from "../Components/Card.astro"
+---
+
+<div class="flex flex-col md:flex-row bg-gray-100 h-screen  dark:bg-gray-800 dark:text-white">
+    <!-- Sidebar -->
+    <Header />
+  
+    <!-- Main Content --><br><br>
+    <div class="flex-1 p-4 md:p-6 dark:bg-gray-800">
+
+        <h1 class="text-3xl font-bold mb-6">Proyecto Midnight</h1>
+
+        <div class="flex items-center justify-end mb-6">
+            <div class="flex items-center space-x-2">
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-300 dark:border-gray-500">
+                    <img src=https://avatars.githubusercontent.com/u/178928214?v=4" alt="Foto de perfil" class="w-full h-full object-cover">
+                </div>
+                <div class="text-right">
+                    <h1 class="text-xl font-bold">Hola, Admin</h1>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Administrador</p>
+                </div>
+            </div>
+        </div>    
+        <!-- Contenido de tarjetas -->
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <!-- Tarjeta Total Sales -->
+          <Card title="Ventas Totales" amount="$25,024" description="El ultimo Mes" />
+          <Card title="Ventas Recientes" amount="$14,160" description="Ultimas 24 Horas" />
+          <Card title="Ventas Semanales" amount="$10,864" description="Ultima Semana" />
+        </div>
+    
+        <!-- Tabla de órdenes recientes -->
+        <div class="mt-6 bg-white p-6 rounded-lg shadow-md overflow-x-auto dark:bg-gray-700">
+          <h2 class="text-xl font-semibold">Pedidos Recientes</h2>
+          <table class="min-w-full mt-4 table-auto dark:border-gray-700">
+            <thead class="dark:border-gray-700">
+              <tr>
+                <th class="px-4 py-2">Nombre del producto</th>
+                <th class="px-4 py-2">Numero de producto</th>
+                <th class="px-4 py-2">Metodo de pago</th>
+                <th class="px-4 py-2">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border px-4 py-2 dark:border-gray-500">Garanon</td>
+                <td class="border px-4 py-2 dark:border-gray-500">85671</td>
+                <td class="border px-4 py-2 dark:border-gray-500">Tarjeta de Credito</td>
+                <td class="border px-4 py-2 dark:border-gray-500 dark:text-yellow-300 text-yellow-500">Pendiente</td>
+              </tr>
+              <!-- Más filas según sea necesario -->
+            </tbody>
+          </table>
+        </div>
+    
+        <!-- Actualizaciones recientes -->
+        <div class="mt-6 bg-white p-6 rounded-lg shadow-md dark:bg-gray-700 dark:text-white">
+          <h2 class="text-xl font-semibold dark:text-white">Ventas Realizadas Recientemente</h2>
+          <ul class="mt-4 space-y-4">
+            <li class="flex items-center">
+              <span class="text-gray-600 dark:text-white">El caballo 503 ha recibido su orden de Garanon</span>
+              <span class="ml-auto text-gray-500 text-sm dark:text-white">08/10/2024</span>
+            </li>
+            <!-- Más actualizaciones según sea necesario -->
+          </ul>
+        </div>
+      </div>
+    </div>

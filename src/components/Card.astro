@@ -1,0 +1,14 @@
+---
+// Card.astro
+export interface Props {
+  title: string;
+  amount: string;
+  description: string;
+}
+const { title, amount, description } = Astro.props;
+---
+<div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-700 dark:text-white">
+  <h2 class="text-xl font-semibold dark:text-white">{title}</h2>
+  <p class="mt-2 text-gray-600 text-3xl dark:text-white">{amount}</p>
+  <p class="mt-1 text-gray-500 text-sm dark:text-white">{description}</p>
+</div>

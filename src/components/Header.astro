@@ -1,4 +1,5 @@
 ---
+import MenuItem from './menu/MenuItem.astro';
 
 ---
 <style>
@@ -27,53 +28,17 @@ input:checked + .block {
         </button>
     </div>
     <nav class="flex-1 mt-10">
-        <ul class="space-y-6">
+        <ul class="space-y-6 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-100 overflow-y-auto">
             <!-- Lista de elementos del sidebar (sin cambios) -->
-            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
-                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
-                <i class="fa-solid fa-house fa-xl"></i>
-                <a href="/Panel" class="group-hover:text-magenta-300 transition-colors">Inicio</a>
-            </li>
-            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
-                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
-                <i class="fas fa-users fa-xl"></i>
-                <a href="#" class="group-hover:text-magenta-300 transition-colors">Clientes</a>
-            </li>
-            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
-                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
-                <i class="fas fa-shopping-cart fa-xl"></i>
-                <a href="#" class="group-hover:text-magenta-300 transition-colors">Ventas</a>
-            </li>
-            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
-                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
-                <i class="fa-solid fa-address-book fa-xl"></i>
-                <a href="#" class="group-hover:text-magenta-300 transition-colors">Empleados</a>
-            </li>
-            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
-                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
-                <i class="fas fa-truck fa-xl"></i>
-                <a href="#" class="group-hover:text-magenta-300 transition-colors">Proveedores</a>
-            </li>
-            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
-                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
-                <i class="fas fa-file-alt fa-xl"></i>
-                <a href="#" class="group-hover:text-magenta-300 transition-colors">Finanzas</a>
-            </li>
-            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
-                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
-                <i class="fas fa-bag-shopping fa-xl"></i>
-                <a href="#" class="group-hover:text-magenta-300 transition-colors">Compras</a>
-            </li>
-            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
-                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
-                <i class="fa-solid fa-box fa-xl"></i>
-                <a href="#" class="group-hover:text-magenta-300 transition-colors">Inventario</a>
-            </li>
-            <li class="group relative px-4 py-2 flex items-center space-x-4 transition-transform transform hover:translate-x-2 duration-300 cursor-pointer" onclick="setActive(this)">
-                <span class="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-magenta-500 transition-colors"></span>
-                <i class="fas fa-sign-out-alt fa-xl"></i>
-                <a href="/" class="group-hover:text-magenta-300 transition-colors">Cerrar Sesion</a>
-            </li>
+            <MenuItem href="/Panel" iconClass="fa-solid fa-house fa-xl" text="Inicio" onClick="setActive(this)" />
+            <MenuItem href="#" iconClass="fas fa-users fa-xl" text="Clientes" onClick="setActive(this)" />
+            <MenuItem href="#" iconClass="fas fa-shopping-cart fa-xl" text="Ventas" onClick="setActive(this)" />
+            <MenuItem href="#" iconClass="fa-solid fa-address-book fa-xl" text="Empleados" onClick="setActive(this)" />
+            <MenuItem href="#" iconClass="fas fa-truck fa-xl" text="Proveedores" onClick="setActive(this)" />
+            <MenuItem href="#" iconClass="fas fa-file-alt fa-xl" text="Finanzas" onClick="setActive(this)" />
+            <MenuItem href="#" iconClass="fas fa-bag-shopping fa-xl" text="Compras" onClick="setActive(this)" />
+            <MenuItem href="#" iconClass="fa-solid fa-box fa-xl" text="Inventario" onClick="setActive(this)" />
+            <MenuItem href="/" iconClass="fas fa-sign-out-alt fa-xl" text="Cerrar Sesion" onClick="setActive(this)" />
             <li class="group relative px-4 py-2 flex items-center space-x-4 cursor-pointer">
                 <!-- Switch de cambio de tema -->
                 <label class="flex items-center cursor-pointer">
