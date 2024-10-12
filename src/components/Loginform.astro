@@ -6,12 +6,12 @@ const { title = "Iniciar Sesión" } = Astro.props;
   <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full dark:bg-gray-800">
     <h2 class="text-2xl font-bold text-center text-gray-800 mb-6 dark:text-cyan-300">{title}</h2>
     
-    <form id="loginForm" action="/Panel" method="get" class="space-y-6">
+    <form id="loginForm" class="space-y-6">
       <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-cyan-300">Correo Electrónico</label>
-        <input type="email" id="email" name="email" required 
+        <label for="nombre" class="block text-sm font-medium text-gray-700 dark:text-cyan-300">Nombre de Usuario</label>
+        <input type="text" id="nombre" name="nombre" required 
                class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-slate-600 dark:text-gray-100" 
-               placeholder="Ingresa tu correo" autocomplete="off" />
+               placeholder="Ingresa tu nombre de usuario" autocomplete="off" />
       </div>
       
       <div>
@@ -22,9 +22,6 @@ const { title = "Iniciar Sesión" } = Astro.props;
       </div>
       
       <div class="flex items-center justify-between">
-        <div class="flex items-center">
-        </div>
-
         <div class="text-sm">
           <a href="#" class="font-medium text-blue-600 hover:text-blue-500 dark:text-gray-200 dark:hover:text-gray-300">¿Olvidaste tu contraseña?</a>
         </div>
@@ -39,14 +36,32 @@ const { title = "Iniciar Sesión" } = Astro.props;
     </form>
   </div>
 </div>
+
 <script>
   const loginForm = document.getElementById('loginForm');
 
-  loginForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita el envío inmediato del formulario
+  loginForm.addEventListener('submit', async function(event) {
+    event.preventDefault(); 
 
-    const passwordField = document.getElementById('password');
-    passwordField.value = '';
-    loginForm.submit();
+    const nombre = document.getElementById('nombre').value; 
+    const password = document.getElementById('password').value; 
+
+    const data = { nombre, password };
+
+    const response = await fetch('http://localhost:4321/Login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data) 
+    });
+ 
+    const result = await response.json(); 
+
+    if (result.success) {
+      window.location.href = '/Panel';
+    } else {
+      alert(result.message);
+    }
   });
 </script>

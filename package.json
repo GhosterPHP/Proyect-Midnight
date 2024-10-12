@@ -12,6 +12,11 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.1.1",
     "astro": "^4.15.11",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.3",
     "tailwindcss": "^3.4.13"
   }
 }
